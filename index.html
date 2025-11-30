@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix IMDb Ratings Dashboard</title>
+
+    <!-- D3.js CDN -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="container">
+
+        <!-- Sidebar Filters -->
+        <aside id="sidebar">
+            <h2>Filters</h2>
+
+            <label>Genre:</label>
+            <select id="genreFilter">
+                <option value="All">All Genres</option>
+            </select>
+
+            <label>Type:</label>
+            <select id="typeFilter">
+                <option value="All">All</option>
+                <option value="Movie">Movie</option>
+                <option value="TV Show">TV Show</option>
+            </select>
+
+            <label>Year Range:</label>
+            <input type="range" id="yearSlider" min="2000" max="2024" value="2010">
+            <span id="yearValue">2010</span>
+
+        </aside>
+
+        <!-- Main Dashboard -->
+        <main id="dashboard">
+
+            <h1>Netflix IMDb Ratings Dashboard</h1>
+
+            <section>
+                <h2>Rating Distribution</h2>
+                <div id="ratingHistogram"></div>
+            </section>
+
+            <section>
+                <h2>Average Rating by Genre</h2>
+                <div id="genreBarChart"></div>
+            </section>
+
+            <section>
+                <h2>Ratings Over Time</h2>
+                <div id="timelineChart"></div>
+            </section>
+
+            <section>
+                <h2>Movies vs TV Shows</h2>
+                <div id="typeComparison"></div>
+            </section>
+
+            <section>
+                <h2>Top 10 Movies & TV Shows</h2>
+                <div id="topCards"></div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
