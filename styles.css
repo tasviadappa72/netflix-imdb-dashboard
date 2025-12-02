@@ -1,46 +1,143 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #111;
-    color: white;
+/* Global */
+* {
+    box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: #050816;
+    color: #f9fafb;
+}
+
+/* Layout */
 #container {
     display: flex;
+    min-height: 100vh;
 }
 
 /* Sidebar */
 #sidebar {
-    width: 250px;
-    background: #1c1c1c;
+    width: 260px;
+    background: #0b1120;
     padding: 20px;
-    height: 100vh;
-    box-sizing: border-box;
+    border-right: 1px solid #1f2937;
 }
 
-#sidebar select, #sidebar input {
+#sidebar h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+#sidebar label {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+#sidebar select,
+#sidebar input[type="range"] {
     width: 100%;
-    margin-bottom: 20px;
+    margin-top: 0.35rem;
+}
+
+#sidebar select {
+    padding: 0.35rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #374151;
+    background: #020617;
+    color: #e5e7eb;
+}
+
+#sidebar input[type="range"] {
+    margin-bottom: 0.25rem;
+}
+
+.year-display {
+    font-size: 0.85rem;
+    color: #9ca3af;
 }
 
 /* Dashboard */
 #dashboard {
     flex-grow: 1;
-    padding: 20px;
+    padding: 24px 28px;
 }
 
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin-top: 0.3rem;
+    margin-bottom: 1.5rem;
+    color: #9ca3af;
+}
+
+/* Sections */
 section {
-    margin-bottom: 50px;
+    margin-bottom: 32px;
 }
 
-/* Chart boxes */
+section h2 {
+    margin-bottom: 0.6rem;
+}
+
+/* Chart containers */
 #ratingHistogram,
 #genreBarChart,
 #timelineChart,
 #typeComparison,
 #topCards {
-    background: #222;
-    padding: 20px;
+    background: #020617;
+    padding: 16px 18px;
+    border-radius: 10px;
+    border: 1px solid #111827;
+    min-height: 280px;
+}
+
+/* SVG default size (will be set from JS, but this helps) */
+svg {
+    width: 100%;
+    height: auto;
+}
+
+/* Top 10 cards */
+.title-card {
+    background: #020617;
     border-radius: 8px;
-    min-height: 300px;
+    border: 1px solid #1f2937;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.1s ease, border-color 0.1s ease, box-shadow 0.1s ease;
+}
+
+.title-card:hover {
+    transform: translateY(-1px);
+    border-color: #6366f1;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+}
+
+.title-main {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+.title-meta {
+    font-size: 0.8rem;
+    color: #9ca3af;
+}
+
+.title-desc {
+    font-size: 0.8rem;
+    margin-top: 4px;
+    color: #e5e7eb;
+}
+
+/* Small text message used when no data */
+.no-data-msg {
+    font-size: 0.9rem;
+    color: #9ca3af;
 }

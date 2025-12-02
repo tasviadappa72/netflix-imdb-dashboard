@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Netflix IMDb Ratings Dashboard</title>
 
     <!-- D3.js CDN -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
     <div id="container">
-
         <!-- Sidebar Filters -->
         <aside id="sidebar">
             <h2>Filters</h2>
 
-            <label>Genre:</label>
+            <label for="genreFilter">Age Rating:</label>
             <select id="genreFilter">
-                <option value="All">All Genres</option>
+                <option value="All">All Ratings</option>
+                <!-- options are filled by JS from age_certification -->
             </select>
 
-            <label>Type:</label>
+            <label for="typeFilter">Type:</label>
             <select id="typeFilter">
-                <option value="All">All</option>
-                <option value="Movie">Movie</option>
-                <option value="TV Show">TV Show</option>
+                <option value="All">Movies &amp; Shows</option>
+                <option value="MOVIE">Movies</option>
+                <option value="SHOW">TV Shows</option>
             </select>
 
-            <label>Year Range:</label>
-            <input type="range" id="yearSlider" min="2000" max="2024" value="2010">
-            <span id="yearValue">2010</span>
-
+            <label for="yearSlider">Release Year (min):</label>
+            <input type="range" id="yearSlider" min="1970" max="2024" value="2000" />
+            <div class="year-display">
+                From <span id="yearValue">2000</span> onwards
+            </div>
         </aside>
 
         <!-- Main Dashboard -->
         <main id="dashboard">
-
-            <h1>Netflix IMDb Ratings Dashboard</h1>
+            <header>
+                <h1>Netflix IMDb Ratings Dashboard</h1>
+                <p>Explore how people rate Netflix movies and TV shows.</p>
+            </header>
 
             <section>
                 <h2>Rating Distribution</h2>
@@ -47,7 +49,7 @@
             </section>
 
             <section>
-                <h2>Average Rating by Genre</h2>
+                <h2>Average Rating by Age Certification</h2>
                 <div id="genreBarChart"></div>
             </section>
 
@@ -57,15 +59,14 @@
             </section>
 
             <section>
-                <h2>Movies vs TV Shows</h2>
+                <h2>Movies vs TV Shows (Average Score)</h2>
                 <div id="typeComparison"></div>
             </section>
 
             <section>
-                <h2>Top 10 Movies & TV Shows</h2>
+                <h2>Top 10 Highest-Rated Titles</h2>
                 <div id="topCards"></div>
             </section>
-
         </main>
     </div>
 
